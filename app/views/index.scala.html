@@ -1,0 +1,42 @@
+@(companies: List[model.Company])
+
+@main("Startup Scholarship") {
+
+  <div class="container">
+        <div class="span12" align="center">
+            @if(companies.isEmpty){
+                <h3 align="center">No companies registered</h3>
+            } else {          
+                <h3 align="center">@companies.length companies registered</h3>
+          <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Founded</th>
+                  <th>Number of employees</th>
+                  <th>More</th>
+                </tr>
+              </thead>
+              <tbody>                
+                @for(c <- companies){
+                <tr>
+                  <td>@c.name</td>
+                  <td>@c.founded</td>
+                  <td>@c.employees.size</td>
+                  <td><button class="btn btn-small btn-primary" type="button">Small button</button></td>
+                </tr>
+                     
+                }
+                </tbody>
+           </table>   
+                
+            }   
+            
+            <a class="btn btn-info" id="bModal" href="@routes.CompanyController.newCompany" align="center">Register company</a>
+       </div>
+    </div>
+    
+   <hr>
+ </div>
+
+}

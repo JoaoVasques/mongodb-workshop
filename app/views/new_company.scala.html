@@ -1,0 +1,42 @@
+@(companyForm: Form[model.Company])
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main("Startup Scholarship") {
+
+    <div class="container">
+
+    <div class="row-fluid">
+        <div class="span9">
+
+@helper.form(action = routes.CompanyController.submit) {
+
+        <fieldset>
+            <legend>Create new company</legend>
+
+            @inputText(
+                companyForm("name"),
+                '_label -> "Name",
+                '_error -> companyForm.globalError
+            )
+        </fieldset>
+        <fieldset>
+            <legend>Founded Date</legend>
+    
+            @inputDate(
+                companyForm("founded"),
+                '_label -> "Founded in"
+            )
+    
+        </fieldset>
+
+        <div class="actions">
+            <input type="submit" class="btn btn-success" value="Create">
+        </div>
+    }
+
+        </div>
+        </div>
+    </div>
+}
