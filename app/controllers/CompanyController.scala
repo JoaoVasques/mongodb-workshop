@@ -21,6 +21,11 @@ object CompanyController extends Controller {
 	  Ok(views.html.new_company(companyForm))
 	}
 	
+	def deleteCompany(name: String) = Action{
+		Company.deleteCompany(name)
+		Redirect(routes.Application.index)
+	}
+	
     def submit = Action { implicit request =>
       companyForm.bindFromRequest.fold(
         errors => BadRequest(views.html.new_company(errors)),
@@ -30,5 +35,4 @@ object CompanyController extends Controller {
         }
       )
     }
-
 }

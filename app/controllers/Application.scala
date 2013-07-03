@@ -8,9 +8,6 @@ import java.util.ArrayList
 object Application extends Controller {
   
   def index = Action {
-    val companies = List[Company]()
-    println(Company.getAll)
     Ok(views.html.index(Company.getAll))
   }
-  
 }

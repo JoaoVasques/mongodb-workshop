@@ -1,0 +1,50 @@
+@(employeeForm: Form[model.Employees],company: String)
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main("Startup Scholarship") {
+
+    <div class="container">
+
+    <div class="row-fluid">
+        <div class="span9">
+
+        <h1>@company new awesome aquisition</h1>
+@helper.form(action = routes.EmployeeController.submit(company)) {
+
+        <fieldset>
+            <legend>New employee</legend>
+
+            @inputText(
+                employeeForm("name"),
+                '_label -> "Name"
+            )
+        </fieldset>
+        <fieldset>
+            <legend>Age</legend>
+    
+            @inputText(
+                employeeForm("age"),
+                '_label -> "Age"
+            )
+    
+        </fieldset>
+        
+        @select(
+            employeeForm("position"),
+            options = options(model.Employees.getPositions()),
+            '_default -> "--- Choose a role ---",
+            '_label -> "Role",
+            '_error -> employeeForm("companyType").error.map(_.withMessage("Please select your type"))
+            )        
+
+        <div class="actions">
+            <input type="submit" class="btn btn-success" value="Create">
+        </div>
+    }
+
+        </div>
+        </div>
+    </div>
+}

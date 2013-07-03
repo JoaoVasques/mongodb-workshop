@@ -11,3 +11,14 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 # Companies
 GET     /company/new                controllers.CompanyController.newCompany
 POST    /company/new                controllers.CompanyController.submit
+GET     /company/delete/:name       controllers.CompanyController.deleteCompany(name: String)
+
+# Employees
+
+## Hire employee
+GET     /employee/new/:name                         controllers.EmployeeController.newEmployee(name: String)
+POST    /employee/new/:name                         controllers.EmployeeController.submit(name: String)
+
+## Fire employee
+GET     /employee/fire/:companyName                 controllers.EmployeeController.fireEmployee(companyName)
+POST    /employee/fire/:companyName                 controllers.EmployeeController.submitFireEmployee(companyName)

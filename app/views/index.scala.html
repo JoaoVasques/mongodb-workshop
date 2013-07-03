@@ -6,15 +6,19 @@
         <div class="span12" align="center">
             @if(companies.isEmpty){
                 <h3 align="center">No companies registered</h3>
-            } else {          
-                <h3 align="center">@companies.length companies registered</h3>
-          <table class="table">
+            } else {
+            @if(companies.length == 1){
+                <h3 align="center">@companies.length company registered</h3>
+            } else {
+                <h3 align="center">@companies.length companies registered</h3>            
+            }
+          <table class="table table-hover">
               <thead>
                 <tr>
                   <th>Name</th>
                   <th>Founded</th>
                   <th>Number of employees</th>
-                  <th>More</th>
+                  <th>Operations</th>
                 </tr>
               </thead>
               <tbody>                
@@ -23,20 +27,21 @@
                   <td>@c.name</td>
                   <td>@c.founded</td>
                   <td>@c.employees.size</td>
-                  <td><button class="btn btn-small btn-primary" type="button">Small button</button></td>
+                  <td>
+                      <a class="btn btn-small btn-danger" href="@routes.CompanyController.deleteCompany(c.name)" type="button">Close company</a>
+                      <a class="btn btn-small btn-info" href="@routes.EmployeeController.newEmployee(c.name)" type="button">Hire Employee</a>
+                      <a class="btn btn-small btn-warning" href="@routes.EmployeeController.fireEmployee(c.name)" type="button">Fire Employee</a>
+                      <a class="btn btn-small btn-success" href="javascript:alert('Todo :)');" type="button">Search Employee</a>
+                  </td>
                 </tr>
                      
                 }
                 </tbody>
-           </table>   
-                
+           </table>                   
             }   
             
             <a class="btn btn-info" id="bModal" href="@routes.CompanyController.newCompany" align="center">Register company</a>
        </div>
     </div>
-    
-   <hr>
  </div>
-
 }
