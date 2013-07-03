@@ -17,6 +17,6 @@ Go to the project directory and run
     sbt
     run
     
-For some info about available after running sbt run:
+For some info about available commands after running sbt run:
 
     help
