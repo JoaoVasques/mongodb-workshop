@@ -1,4 +1,6 @@
 Startup Scholarship MongoDB workshop!
 =====================================
 
-TODO
+Pre-requisites:
+  + sbt 0.12.*
+  + scala 2.10
