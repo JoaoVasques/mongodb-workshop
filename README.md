@@ -12,7 +12,7 @@ that is supported by the creator of Scala)
   
 ## Run application
 
-Go to the directory and run
+Go to the project directory and run
     
     sbt
     run
