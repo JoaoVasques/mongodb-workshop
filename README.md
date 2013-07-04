@@ -3,6 +3,7 @@ Startup Scholarship MongoDB workshop!
 
 Pre-requisites:
   + [sbt](http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html)
+  + [MongoDB](http://docs.mongodb.org/manual/installation/)
 
 You can use any text editor on IDE for the workshop. You can find [here](http://www.playframework.com/documentation/2.0/IDE) a list
 of IDEs that are officially supported by Play!. 
